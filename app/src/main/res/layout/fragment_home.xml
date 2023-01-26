@@ -9,7 +9,8 @@
 
  <com.google.android.material.floatingactionbutton.FloatingActionButton
      android:layout_width="wrap_content"
-     android:layout_margin="70dp"
+     android:layout_marginEnd="25dp"
+     android:layout_marginBottom="75dp"
      android:src="@drawable/ic_baseline_note_add_24"
      android:id="@+id/fab"
      app:layout_constraintBottom_toBottomOf="parent"
