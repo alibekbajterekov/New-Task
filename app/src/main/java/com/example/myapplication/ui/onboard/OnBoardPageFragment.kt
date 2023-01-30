@@ -1,5 +1,6 @@
 package com.example.myapplication.ui.onboard
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,9 +12,13 @@ import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentOnBoardPageBinding
 import com.example.myapplication.ui.home.HomeFragment
+import com.example.myapplication.utils.Preferences
 
 
-class OnBoardPageFragment : Fragment() {
+class OnBoardPageFragment(
+    var listenerNext:() -> Unit,
+    var listenerSkip:() -> Unit,
+) : Fragment() {
 
     private lateinit var binding: FragmentOnBoardPageBinding
 
@@ -32,9 +37,16 @@ class OnBoardPageFragment : Fragment() {
 
     private fun initListeners() {
         binding.btnStart.setOnClickListener {
-            findNavController().navigate(R.id.navigation_home)
+            Preferences(requireContext()).setBoardingShowed(true)
+            findNavController().navigateUp()
         }
 
+        binding.btnNext.setOnClickListener {
+            listenerNext.invoke()
+        }
+        binding.btnSkip.setOnClickListener {
+            listenerSkip.invoke()
+        }
     }
 
     private fun initViews() {
@@ -48,7 +60,10 @@ class OnBoardPageFragment : Fragment() {
             binding.btnNext.isVisible = data.isLast == false
             binding.btnStart.isVisible = data.isLast == true
 
-
+            if (!data.isLast) {
+                binding.boardConst.setBackgroundResource(data.bg)
+            } else {
+                binding.boardConst.setBackgroundResource(data.bg)
 
 
             }
@@ -57,5 +72,6 @@ class OnBoardPageFragment : Fragment() {
         }
 
     }
+}
 
 

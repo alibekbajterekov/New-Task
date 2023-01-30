@@ -29,11 +29,19 @@ class OnBoardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = BoardAdapter(childFragmentManager)
+        val adapter = BoardAdapter(childFragmentManager,this::onNextClick, this::onSkipClick)
         binding.vpBoard.adapter = adapter
         binding.wormDotsIndicator.attachTo(binding.vpBoard)
 
 
+
+    }
+    private fun onNextClick(){
+        binding.vpBoard.currentItem += 1
+
+    }
+    private fun onSkipClick(){
+        binding.vpBoard.currentItem = 2
 
     }
 

@@ -6,7 +6,10 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import com.example.myapplication.R
 
-class BoardAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
+class BoardAdapter(fm: FragmentManager,
+                   var listenerNext:() -> Unit,
+                   var listenerSkip:() -> Unit,
+                   ) : FragmentStatePagerAdapter(fm) {
 
 private val listBoarding = arrayOf(BoardModel(
 R.drawable.img1,
@@ -40,9 +43,7 @@ false,
 
     override fun getItem(position: Int): Fragment {
         val data = bundleOf("onBoard" to listBoarding[position])
-        val fragment = OnBoardPageFragment()
+        val fragment = OnBoardPageFragment(listenerNext,listenerSkip)
         fragment.arguments = data
         return fragment
-    }
-
-}
+    } }
