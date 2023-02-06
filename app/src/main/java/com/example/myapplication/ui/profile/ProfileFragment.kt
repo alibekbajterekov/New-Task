@@ -1,27 +1,21 @@
 package com.example.myapplication.ui.profile
 
-import android.accounts.AccountManager.get
-import android.app.Activity
-import android.content.Intent
-import android.net.Uri
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.result.ActivityResult
-import androidx.activity.result.ActivityResultCallback
+
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.net.toUri
+
 import androidx.core.widget.addTextChangedListener
-import com.bumptech.glide.Glide
-import com.example.myapplication.R
+
 import com.example.myapplication.databinding.FragmentProfileBinding
 import com.example.myapplication.extensions.loadImage
 import com.example.myapplication.utils.Preferences
-import java.lang.reflect.Array.get
-import java.util.jar.Attributes.Name
+
 
 
 class ProfileFragment : Fragment() {
