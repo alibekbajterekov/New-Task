@@ -63,7 +63,16 @@ class ProfileFragment : Fragment() {
         binding.etName.setText(preferences.getName())
         binding.etName.addTextChangedListener{
             preferences.saveName(binding.etName.text.toString())
-        }
-    }
+
+            binding.imgProfile.loadImage(preferences.getImageProfile().toString())
 
         }
+        binding.edAge.setText(preferences.getAge())
+        binding.edAge.addTextChangedListener{
+            preferences.saveAge(binding.edAge.text.toString())
+        }
+
+        }
+
+    }
+

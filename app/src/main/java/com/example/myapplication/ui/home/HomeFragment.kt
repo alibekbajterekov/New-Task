@@ -20,6 +20,7 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var adapter: TaskAdapter
 
+    @Suppress("DEPRECATION")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -30,7 +31,8 @@ class HomeFragment : Fragment() {
 
         return binding.root
     }
-
+@Suppress("DEPRECATION")
+@Deprecated("Deprecated in Java")
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu,menu)
         super.onCreateOptionsMenu(menu, inflater)

@@ -38,7 +38,7 @@ class OnBoardPageFragment(
     private fun initListeners() {
         binding.btnStart.setOnClickListener {
             Preferences(requireContext()).setBoardingShowed(true)
-            findNavController().navigateUp()
+            findNavController().navigate(R.id.authFragment)
         }
 
         binding.btnNext.setOnClickListener {

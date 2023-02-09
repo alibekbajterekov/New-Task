@@ -26,6 +26,18 @@ class Preferences (context: Context) {
     fun getName(): String{
         return sharedPreference.getString("name","").toString()
     }
+    fun saveAge(age:String){
+        sharedPreference.edit().putString("AGE_KEY",age).apply()
+    }
+    fun getAge():String{
+        return sharedPreference.getString("AGE_KEY","").toString()
+    }
+    fun saveFloor(floor: String){
+        sharedPreference.edit().putString("FLOOR_KEY",floor).apply()
+    }
+    fun getFloor():String {
+        return sharedPreference.getString("FLOOR_KEY", "").toString()
+    }
 
     companion object{
         private const val NAME_KEY = "name.preference"
